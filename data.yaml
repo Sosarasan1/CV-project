@@ -1,0 +1,19 @@
+# data.yaml
+
+# Paths to your train and validation image folders.
+# Use relative paths from where you will run the training script.
+# For example, if your dataset is in "helmet-detection/dataset/", the paths would be:
+train: helmet_dataset_final\train\images
+val: helmet_dataset_final\valid\images
+test: helmet_dataset_final\test\images # Optional, for final testing later
+
+# --- Class information ---
+# Number of classes
+nc: 3
+
+# Class names in the EXACT order they correspond to your label IDs.
+# In the safety_helmet-wearing-dataset:
+# 0 is usually 'helmet'
+# 1 is usually 'head' (we'll treat this as "no-helmet")
+# 2 is usually 'person'
+names: ['person', 'helmet', 'dog']
