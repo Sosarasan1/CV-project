@@ -23,10 +23,11 @@ if TRAIN_RATIO + VALID_RATIO + TEST_RATIO > 1.0:
     exit()
 
 CLASS_MAPPING = {
-    'helmet': 1,
-    'dog': 2,
-    'person': 0
+    'person': 0,
+    'hat': 1,
+    'dog': 2
 }
+
 
 # ==========================================================================================
 # --- 2. THE LOGIC: YOU DON'T NEED TO EDIT BELOW THIS LINE ---
@@ -43,7 +44,10 @@ def convert_voc_to_yolo(xml_file_path, class_mapping):
 
         yolo_lines = []
         for obj in root.findall('object'):
-            class_name = obj.find('name').text
+            class_name = obj.find('name').text.strip().lower()
+
+            print(f"Found class: '{class_name}' in {xml_file_path}")
+
             if class_name not in class_mapping:
                 continue
             class_id = class_mapping[class_name]
