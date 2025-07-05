@@ -3,9 +3,10 @@
 # Paths to your train and validation image folders.
 # Use relative paths from where you will run the training script.
 # For example, if your dataset is in "helmet-detection/dataset/", the paths would be:
-train: helmet_dataset_final\train\images
-val: helmet_dataset_final\valid\images
-test: helmet_dataset_final\test\images # Optional, for final testing later
+train: helmet_dataset_final/train/images
+val: helmet_dataset_final/valid/images
+
+test: helmet_dataset_final/test/images # Optional, for final testing later
 
 # --- Class information ---
 # Number of classes
