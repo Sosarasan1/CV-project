@@ -1,13 +1,6 @@
 venv/
 __pycache__/
-*.pyd
-*.dll
-*.lib
-*.so
-*.ckpt
-*.pt
-*.h5
-*.zip
-*.whl
-.DS_Store
-.ipynb_checkpoints/
+*.pyc
+*.log
+runs/
+outputs/
