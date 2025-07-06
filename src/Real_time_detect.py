@@ -4,7 +4,7 @@ import os
 from ultralytics import YOLO
 
 # === Setup ===
-model = YOLO("models/best.pt")
+model = YOLO("../models/best.pt")
 
 # Setup webcam
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)

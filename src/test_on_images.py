@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 # Load model
-model = YOLO("models/best.pt")
+model = YOLO("../models/best.pt")
 
 # Run on all images in 'self_test' folder, save results to 'outputs/helmet_results'
 results = model.predict(
