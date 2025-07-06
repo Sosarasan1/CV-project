@@ -3,7 +3,6 @@ import time
 import os
 from ultralytics import YOLO
 
-# === Setup ===
 model = YOLO("../models/best.pt")
 
 # Setup webcam
@@ -23,7 +22,7 @@ height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps_out = 20  # Change this if needed
 
 # Define video codec and create writer
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # or 'XVID'
+fourcc = cv2.VideoWriter_fourcc(*'mp4v') 
 out = cv2.VideoWriter(video_path, fourcc, fps_out, (width, height))
 
 frame_count = 0
@@ -43,9 +42,9 @@ while True:
     for r in results:
         annotated_frame = r.plot()
 
-        # === Confusion Handling ===
-        helmet_detected = any([box.cls == 0 for box in r.boxes])  # Assumes class 0 = helmet
-        if not helmet_detected:  # Fix: should be "not helmet_detected"
+        #  Confusion Handling 
+        helmet_detected = any([box.cls == 0 for box in r.boxes]) 
+        if not helmet_detected: 
             cv2.putText(
                 annotated_frame,
                 "No helmet detected!",
@@ -56,7 +55,7 @@ while True:
                 2,
             )
 
-        # === FPS Counter ===
+        #  FPS Counter 
         frame_count += 1
         elapsed_time = time.time() - start_time
         fps = frame_count / elapsed_time
@@ -70,10 +69,10 @@ while True:
             2,
         )
 
-        # === Save to video ===
+        #  Save to video 
         out.write(annotated_frame)
 
-        # === Display ===
+        #  Display 
         cv2.imshow("Helmet Detection - Real-Time", annotated_frame)
 
     if cv2.waitKey(1) & 0xFF == ord("q"):

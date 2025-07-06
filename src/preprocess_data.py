@@ -1,13 +1,9 @@
-# preprocess_data_v2.py (with train/valid/test split)
+
 
 import os
 import xml.etree.ElementTree as ET
 import random
 import shutil
-
-# ==========================================================================================
-# --- 1. CONFIGURATION: YOU ONLY NEED TO EDIT THIS SECTION ---
-# ==========================================================================================
 
 XML_DIR = 'Annotations' 
 IMG_DIR = 'JPEGImages' 
@@ -28,10 +24,6 @@ CLASS_MAPPING = {
     'dog': 2
 }
 
-
-# ==========================================================================================
-# --- 2. THE LOGIC: YOU DON'T NEED TO EDIT BELOW THIS LINE ---
-# ==========================================================================================
 
 def convert_voc_to_yolo(xml_file_path, class_mapping):
     """Converts a single Pascal VOC XML file to a list of YOLO formatted strings."""
@@ -73,7 +65,6 @@ def process_files(file_list, dataset_name, output_dir, img_dir, xml_dir, class_m
     """Processes a list of files for a given dataset split (train/valid/test)."""
     print(f"\n--- Processing {dataset_name.upper()} set ({len(file_list)} files) ---")
     
-    # Create subdirectories for the current set
     os.makedirs(os.path.join(output_dir, dataset_name, 'images'), exist_ok=True)
     os.makedirs(os.path.join(output_dir, dataset_name, 'labels'), exist_ok=True)
 
